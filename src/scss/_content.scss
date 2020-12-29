@@ -1,0 +1,23 @@
+.title-wrapper{
+    padding-top: 13.6875rem;
+    padding-left: 30rem;
+   
+    
+}
+.title{
+    font-size: 100px;
+    line-height: 122px;
+    color: $gray;
+    font-weight: bold;
+    text-shadow:0px 1px 0 rgb(255,255,255),0px -1px 0 rgb(255,255,255),1px 0px 0 rgb(255,255,255),-1px 0px 0 rgb(255,255,255),1px 1px 0 rgb(255,255,255),1px -1px 0 rgb(255,255,255),-1px 1px 0 rgb(255,255,255),-1px -1px 0 rgb(255,255,255);
+    flex: 1 0 auto;
+
+}
+.title-wrapper_img-block{
+    margin-left: auto;
+    width: 292px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    flex: 0 0 auto;
+}
