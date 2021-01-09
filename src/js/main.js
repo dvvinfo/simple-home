@@ -14,59 +14,71 @@ $(document).ready(function(){
 		return false;
 	});
 	$('.burger').click(function(event){
-		$('.menu-header,.burger__line').toggleClass('active'); 
+		$('.menu-header,.header__menu-block,.burger__line').toggleClass('active'); 
 		$('.burger__line-1').toggleClass('active-1');   
 		
 	});
 
-	$('#notifications').click(function(event){
-		$('.notifications-overlay').toggleClass('notifications-active'); 
-		return false;
-		  
-		
-	});
-	// $('.fqa-block__content__item__title-wrapper').click(function(event){
-	// 	$('.fqa-block__content__item__title-img').toggleClass('fqa-block__content__item__title-img__active'); 
-	// 	$('.fqa-block__content__item__hidden-wrapper').toggleClass('fqa-block__content__item__hidden-wrapper__active');   
-		
-	// });
-	$('.fqa-block__content__item__title-wrapper').click(function(event){
-		$(this).find('.fqa-block__content__item__title-img').toggleClass('fqa-block__content__item__title-img__active'); 
-		$(this).next('.fqa-block__content__item__hidden-wrapper').toggleClass('fqa-block__content__item__hidden-wrapper__active');   
-			
+
+		function validateForms(form){
+			$(form).validate({
+				rules:{
+					name: {
+						required: true,
+						minlength: 2
+					  },
+					tel: "required",
+					email: {
+						required: true,
+						email: true
+					}
+				},
+				messages: {
+					name: {
+						required: "Пожалуйста введите свое имя",
+						minlength: jQuery.validator.format("Требуется не менее {0} символов!")
+					}, 
+					tel: "! Не правильный формат телефона",
+					email: {
+					  required: "Пожалуйста введите свой email",
+					  email: "Неправильно введен вдрес email"
+					},
+					checkbox:"! Подтвердите согласие на обработку персональных данных"
+				  },
+				
+			});
+		};
+
+
+		validateForms('#form__block-form');
+		validateForms('#form__block__form-modal');
+
+		$('input[name=tel]').mask("+7 (999) 999-99-99")
+
+		// Modal
+		$('[data-modal=application]').on('click', function () {
+			$('.overlay,#application').fadeIn();
 		});
-		$('.fqa-block__my-appeal_content-item__title-wrapper').click(function(event){
+		$('.form__block__modal-btn').on('click', function () {
+			$('.overlay,#application,#success').fadeOut('slow');
+		});
 
-			
-			
-			$(this).find('.fqa-block__my-appeal_content-item__title__img').toggleClass('fqa-block__content__item__title-img__active'); 
-			$(this).next('.fqa-block__my-appeal_content-item__hidden_block-wpapper').toggleClass('fqa-block__content__item__hidden-wrapper__active');   
-				
+		$('form').submit(function(e){
+			e.preventDefault();
+			$.ajax({
+				type: "POST",
+				url: "mailer/smart.php",
+				data: $(this).serialize()
+			}).done(function(){
+				$(this).find("input").val("");
+				$('#form__block__modal').fadeOut();
+				$('.overlay,#success').fadeIn('slow');
+
+
+				$('form').trigger('reset');
 			});
+			return false;
 
-			$('.fqa-block__my-appeal_content-item-mobi ').click(function(event){
+		});
 
-			
-				$(this).toggleClass('fqa-block__my-appeal_content-item__active'); 
-				$(this).find('.fqa-block__my-appeal_content-item__hidden_block-wpapper-mobi').toggleClass('fqa-block__my-appeal_content-item__hidden_block-wpapper-mobi__active'); 
-				$(this).next('.fqa-block__my-appeal_content-item__title__img').toggleClass('fqa-block__content__item__title-img__active'); 
-				  
-					
-				});
-
-
-			$('.overlay__payment__btn__currency').click(function(event){
-					$('.overlay__payment__btn__currency').toggleClass('overlay__payment__btn__currency-active'); 
-				
-					});
-
-			$('.dashboard__slider').slick({
-				infinite: true,
-  				slidesToShow: 1,
-				slidesToScroll: 1,
-				dots: true,
-				prevArrow:'<button type="button" class="slick-prev"> <img src="../images/Arrow-prev.svg" alt="" class="slider-prev"></button>',
-				nextArrow:'<button type="button" class="slick-next"><img src="../images/Arrow-next.svg" alt="" class="slider-next"></button>'
-			});
-		
 });

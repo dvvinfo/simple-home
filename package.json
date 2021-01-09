@@ -36,6 +36,8 @@
 		"@popperjs/core": "^2.5.4",
 		"bootstrap": "^4.5.3",
 		"jquery": "^3.5.1",
+		"jquery-validation": "^1.19.2",
+		"jquery.maskedinput": "^1.4.1",
 		"normalize.css": "^8.0.1"
 	},
 	"scripts": {

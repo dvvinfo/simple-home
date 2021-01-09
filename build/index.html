@@ -18,6 +18,8 @@
 	<header class="header">
    <div class="header__menu-wrapper">
       <div class="header__menu">
+         
+         <div class="header__menu-wrapper-1">
          <img src="images/Logo.png" alt="" class="header__menu__logo">
          <ul class="header__menu-block">
                <li class="header__menu-item"><a href="#" class="header__menu-link"> О нас</a> </li>
@@ -27,7 +29,12 @@
                <li class="header__menu-item"><a href="#" class="header__menu-link">Наши объекты</a></li>
                <li class="header__menu-item"><a href="#" class="header__menu-link">Контакты</a></li>       
          </ul>
+      </div>
          <div class="tel-block">
+            <div class="burger">
+               <span class="burger__line"></span>
+               <span class="burger__line-1"></span>
+           </div>
             <div class="tel-block__item">
                <span>Москва</span>
                <a href="tel:+7(812)313-24-53" class="tel-block__item-link">+7(812)313-24-53</a>
@@ -37,7 +44,7 @@
                <a href="tel:+7(812)313-24-53" class="tel-block__item-link">+7(812)313-24-53</a>
             </div>
             <div class="header__btn-wrapper">
-               <button class="header__btn"><a href="#form" class="header__btn-link">Заказать звонок</a></button>
+               <button class="header__btn" data-modal="application">Заказать звонок</button>
             </div>
          </div>
       </div>
@@ -45,11 +52,15 @@
 </header>
 	
 	<div class="title-wrapper">
-		<h1 class="title">Умный дом</h1>
+		<h1 class="title">Умный дом <br>премиум <br>класса</h1>
 		
 
 	</div>
+	
 	<div class="title-wrapper_img-block">
+		<div class="scroll-wrapper">
+			<img src="images/scroll.svg" alt="">
+		</div>
 		<img src="images/1.png" alt="№1" class="title-wrapper_img-block__img">
 		<img src="images/2.png" alt="" class="title-wrapper_img-block__img">
 	</div>
@@ -86,7 +97,7 @@
 		</div>
 		<div class="info__text">14 лет <br>опыта</div>
 	</section>
-	<section class="form__block">
+	<section class="form__block" id="form__block">
 		<div class="form__block__title-wrapper">
 			<h2 class="form__block__title">Узнайте стоимость </h2>
 			<h2 class="form__block__title-text">Умного дома</h2>
@@ -96,19 +107,23 @@
 			<div class="form__block-text">Мы свяжемся с вами</div>
 			<div class="form__block-wrapper__content">
 				<p class="form__block-wrapper__content-text">Ваш проект будет вести персональный менеджер «Умный дом» не мешает реализации любого дизайн-проект</p>
-				<form action="#" class="form__block__form">
+				<form action="#" class="form__block__form" id="form__block-form">
 					<div class="form__block__form__input-wrapper">
-						<input type="text" placeholder="Имя" required class="form__block__form__input">
+						<input type="text" placeholder="Имя" required class="form__block__form__input" name="name">
 					</div>
 					<div class="form__block__form__input-wrapper">
-						<img src="images/Group.svg" alt=""><input type="tel" required class="form__block__form__input">
+					<input type="tel" required class="form__block__form__input" name="tel" placeholder="+7 (999) 999-99-99">
 					</div>
 					<div class="form__block__form__input-wrapper">
-						<input type="email" required placeholder="Почта" class="form__block__form__input">
+						<input type="email" required placeholder="Почта" class="form__block__form__input" name="email">
 					</div>
 					<div class="form__block__form__btn-wrapper">
 						<div class="form__block__form__checkbox-wrapper">
-							<input type="checkbox"> <span class="form__block__form__checkbox-text">Соглашаюсь на <a href="#" class="form__block__form__checkbox-link">обработку персональных данных</a> </span>
+							<div class="checkbox">
+								<input type="checkbox" required name="checkbox" checked="checked">
+								<div class="label"></div>
+							</div>
+							<span class="form__block__form__checkbox-text"> Соглашаюсь на <a href="#" class="form__block__form__checkbox-link">обработку персональных данных</a> </span>
 						</div>
 						<button type="submit" class="form__block__form__btn">отправить <img src="images/arrow.svg" alt="отправить"></button>
 					</div>
@@ -118,7 +133,61 @@
 				</form>
 			</div>
 		</div>
+
+		
 	</section>
+	<!--Modal -->
+	<div class="overlay">
+		<div class="modal" id="application">
+	<div class="form__block__modal-wrapper" id="form__block__modal">
+		
+		<button class="form__block__modal-btn"><img src="images/close.svg" alt=""></button>
+		<div class="form__block__modal-wrapper__content">
+			<div class="form__block-text dn-custom">Оставить заявку</div>
+			
+			<form action="#" class="form__block__form-modal" id="form__block__form-modal">
+				<p class="form__block__modal-wrapper__content-text">После подачи заявки с вами свяжется наш менеджер</p>
+				<div class="form__block__form__input-wrapper">
+					<input type="text" placeholder="Имя" required class="form__block__form__input" name="name">
+				</div>
+				<div class="form__block__form__input-wrapper">
+				<input type="tel" required class="form__block__form__input" name="tel" placeholder="+7 (999) 999-99-99">
+				</div>
+				<div class="form__block__form__input-wrapper">
+					<input type="email" required placeholder="Почта" class="form__block__form__input" name="email">
+				</div>
+				<div class="form__block__form__modal__btn-wrapper">
+					<div class="form__block__form__checkbox-wrapper">
+						<div class="checkbox">
+							<input type="checkbox" required name="checkbox" checked="checked">
+							<div class="label"></div>
+						</div>
+						<span class="form__block__form__checkbox-text"> Соглашаюсь на <a href="#" class="form__block__form__checkbox-link">обработку персональных данных</a> </span>
+					</div>
+					<button type="submit" class="form__block__modal__form__btn">отправить <img src="images/arrow.svg" alt="отправить"></button>
+				</div>
+				
+					
+					
+			</form>
+			
+		</div>
+		
+	</div>
+</div>
+
+
+
+	<div class="modal" id="success">
+		
+	<div class="modal__success-wrapper">
+		<button class="form__block__modal-btn"><img src="images/close.svg" alt=""></button>
+		<h1 class="modal__success__title">Благодарим за заявку!</h1>
+		<div class="modal__success__line"></div>
+		<p class="modal__success__text">Менеджер свяжется с вами в течении 15 минут</p>
+	</div>
+</div>
+</div>
 </main>
 	
 	<footer class="footer">

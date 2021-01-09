@@ -122,8 +122,11 @@ gulp.task('libs_js', () => {
 	return gulp
 		.src([
 			'node_modules/jquery/dist/jquery.min.js',
+			'node_modules/jquery-validation/dist/jquery.validate.min.js',
+			'node_modules/jquery.maskedinput/src/jquery.maskedinput.js',
 			'node_modules/@popperjs/core/dist/umd/popper.min.js',
 			'node_modules/bootstrap/dist/js/bootstrap.min.js',
+			
 			
 			/* insert here path to libs and plugins js files, like 'node_modules/lib-1/lib-1.js','node_modules/lib-2/lib-2.js'  */
 		])

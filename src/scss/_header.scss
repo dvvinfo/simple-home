@@ -74,6 +74,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
+font-size: 13px;
+line-height: 16px;
+text-align: center;
+letter-spacing: 0.05em;
+color: #fff;
+text-transform: uppercase;
     &:focus{
          border: 1px solid #FFFFFF;;
     }
@@ -85,4 +92,7 @@
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
+}
+.header__menu-wrapper-1{
+    display: flex;
 }
